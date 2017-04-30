@@ -5,8 +5,8 @@ var AWS = require('aws-sdk');
   // configure AWS
     AWS.config.update({
 'region': 'us-west-2',
-      'accessKeyId': '[accessKeyId]',
-      'secretAccessKey': '[secretAccessKey]'
+ 'accessKeyId': '[accessKeyId]',
+ 'secretAccessKey': '[secretAccessKey]'
     });
 
     var sns = new AWS.SNS();
@@ -33,5 +33,6 @@ sns.publish(params, function(err, data) {
   if (err) console.log(err, err.stack); // an error occurred
   else     console.log(data);           // successful response
 });
-````````````````````````
-#####################For More info: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SNS.html
+````````````````````````````
+
+For More info: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SNS.html
