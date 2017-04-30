@@ -34,4 +34,4 @@ sns.publish(params, function(err, data) {
   else     console.log(data);           // successful response
 });
 ````````````````````````
-For More info: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SNS.html
+#####################For More info: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SNS.html
