@@ -1,35 +1,36 @@
-# AWS
+# AWS-SNS
+#### Send SMS with AWS Javascript SDK or node js sdk
+````````````````````````````
+var AWS = require('aws-sdk');
+  // configure AWS
+    AWS.config.update({
+'region': 'us-west-2',
+      'accessKeyId': '[accessKeyId]',
+      'secretAccessKey': '[secretAccessKey]'
+    });
 
-Create S3 bucket public access policy
+    var sns = new AWS.SNS();
+   // var sqs = new AWS.SQS();
+//     sns.createTopic({
+//     'Name': 'pikfoodsns'
+//    }, function (err, result) {
 
-Policy JSON
+//     if (err !== null) {
+//         console.log(util.inspect(err));
+//         return;
+//     }
 
-`{"Version": "2008-10-17",`
+//     console.log(util.inspect(result));
 
-`"Statement": [{"Sid": "AllowPublicRead",`
+// });
+var params = {
+  Message: 'this is a test message',
+  MessageStructure: 'string',
+  PhoneNumber: '+91[10 digit mobile no.]'
+};
 
-`"Effect": "Allow",`
-
-`"Principal": {`
-
-`"AWS": "*"`
-
-`},`
-
-`"Action": "s3:GetObject",`
-
-`"Resource": "arn:aws:s3:::YOUR-BUCKET-NAME/*"`
-
-`}]}`
-
-Access S3 bucket by Domain Name:
-
-`1: Deside your Domain Like: abc.xyz.com`
-
-`2: Create S3 bucket as same name like your domain name is if your doamin name is abc.xyz.com then choose abc.xyz.com as bucket name.`
-
-`3: Then please click in Properties tab after this click in Static Website Hosting link and choose  Enable website hosting write your first 2 page link like index.html and error.html and uplode same page in bucket. `
-
-`4: After this go to Route 53 and set your new Set Record for abc.xyz.com and choose cname and enter complete S3 URL Path .`
-
-`5: Thanks and now you can enjoy your new staic web site`
+sns.publish(params, function(err, data) {
+  if (err) console.log(err, err.stack); // an error occurred
+  else     console.log(data);           // successful response
+});
+````````````````````````
