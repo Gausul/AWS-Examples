@@ -24,7 +24,7 @@ var AWS = require('aws-sdk');
 
 // });
 var params = {
-  Message: 'this is a test message',
+  Message: 'this is a test message for testing.',
   MessageStructure: 'string',
   PhoneNumber: '+91[10 digit mobile no.]'
 };
@@ -34,3 +34,4 @@ sns.publish(params, function(err, data) {
   else     console.log(data);           // successful response
 });
 ````````````````````````
+For More info: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SNS.html
